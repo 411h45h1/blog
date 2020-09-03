@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-
+import { StyleSheet, ScrollView, View } from "react-native";
 import AppContext from "../../core/context/appContext";
-import { Layout, Button, Toggle, Text } from "@ui-kitten/components";
+import { Layout, Card, Button, Toggle, Text } from "@ui-kitten/components";
 
 import { logoutUser } from "../api/auth";
+import BlogItem from "../components/BlogItem";
 
 const HomeScreen = () => {
   const state = useContext(AppContext);
@@ -29,23 +30,46 @@ const HomeScreen = () => {
           alignItems: "center",
         }}
       >
-        <Button onPress={() => logoutUser()} status="control">
+        <Button size="small" onPress={() => logoutUser()} status="control">
           Log Out
         </Button>
-        <Text category="s1">HomeScreen</Text>
+        <Text category="s1">Blog</Text>
         <Toggle checked={checked} onChange={onCheckedChange} />
       </Layout>
 
-      <Layout
-        style={{
-          flex: 7,
-          padding: 20,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      ></Layout>
+      <Layout style={styles.blogSection} level="4">
+        <ScrollView>
+          <View style={styles.container}>
+            <BlogItem />
+            <BlogItem />
+            <BlogItem />
+          </View>
+        </ScrollView>
+      </Layout>
     </Layout>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginRight: 15,
+  },
+  card: {
+    margin: 5,
+    width: "100%",
+  },
+  blogSection: {
+    flex: 7,
+    margin: 10,
+    padding: 20,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    borderRadius: 20,
+  },
+});
 
 export default HomeScreen;
