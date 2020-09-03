@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 
 import AppContext from "../../core/context/appContext";
-import { Layout, Toggle, Text } from "@ui-kitten/components";
+import { Layout, Button, Toggle, Text } from "@ui-kitten/components";
+
+import { logoutUser } from "../api/auth";
 
 const HomeScreen = () => {
   const state = useContext(AppContext);
@@ -14,10 +16,34 @@ const HomeScreen = () => {
   };
 
   return (
-    <Layout style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Toggle checked={checked} onChange={onCheckedChange} />
+    <Layout
+      style={{
+        flex: 8,
+      }}
+    >
+      <Layout
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
+        <Button onPress={() => logoutUser()} status="control">
+          Log Out
+        </Button>
+        <Text category="s1">HomeScreen</Text>
+        <Toggle checked={checked} onChange={onCheckedChange} />
+      </Layout>
 
-      <Text category="h1">HomeScreen</Text>
+      <Layout
+        style={{
+          flex: 7,
+          padding: 20,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      ></Layout>
     </Layout>
   );
 };

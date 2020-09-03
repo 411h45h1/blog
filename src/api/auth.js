@@ -1,5 +1,6 @@
 import firebase from "../../core/firebase";
 import "firebase/auth";
+import "firebase/firestore";
 
 export const logoutUser = () => {
   firebase.auth().signOut();
