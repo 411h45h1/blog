@@ -8,6 +8,7 @@ import {
   AuthLoadingScreen,
   OnBoard,
   HomeScreen,
+  BlogSelected,
 } from "./src/screens";
 import AppContext from "./core/context/appContext";
 import * as eva from "@eva-design/eva";
@@ -51,6 +52,11 @@ const Screens = () => {
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BlogSelected"
+          component={BlogSelected}
           options={{ headerShown: false }}
         />
         {/* <Stack.Screen

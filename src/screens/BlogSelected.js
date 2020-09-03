@@ -1,21 +1,21 @@
 import React, { useState, useContext } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import AppContext from "../../core/context/appContext";
-import { Layout, Card, Button, Toggle, Text } from "@ui-kitten/components";
+import { Layout, Button, Toggle } from "@ui-kitten/components";
 
-import { logoutUser } from "../api/auth";
+import BlogPost from "../components/BlogPost";
 
-import BlogItem from "../components/BlogItem";
-
-const HomeScreen = ({ navigation }) => {
+const BlogSelected = ({ navigation }) => {
   const state = useContext(AppContext);
-  const { blogEntries, themeSwitch } = state;
+  const { blogSelected, themeSwitch } = state;
   const [checked, setChecked] = useState(false);
 
   const onCheckedChange = (isChecked) => {
     setChecked(isChecked);
     themeSwitch();
   };
+
+  const goBack = () => navigation.navigate("HomeScreen");
 
   return (
     <Layout
@@ -32,29 +32,24 @@ const HomeScreen = ({ navigation }) => {
           marginHorizontal: 15,
         }}
       >
-        <Button size="small" onPress={() => logoutUser()} status="basic">
-          Log Out
+        <Button size="small" status="basic" onPress={() => goBack()}>
+          Return
         </Button>
-        <Text category="s1">Blog</Text>
         <Toggle checked={checked} onChange={onCheckedChange} />
       </Layout>
 
       <Layout style={styles.blogSection} level="4">
         <ScrollView>
           <View style={styles.container}>
-            {blogEntries &&
-              blogEntries.map((i, k) => (
-                <BlogItem
-                  key={k}
-                  navigation={navigation}
-                  bid={i.bid}
-                  title={i.title}
-                  summary={i.summary}
-                  content={i.content}
-                  importance={i.importance}
-                  date={i.date}
-                />
-              ))}
+            {blogSelected && (
+              <BlogPost
+                content={blogSelected.content}
+                title={blogSelected.title}
+                importance={blogSelected.importance}
+                summary={blogSelected.summary}
+                date={blogSelected.date}
+              />
+            )}
           </View>
         </ScrollView>
       </Layout>
@@ -84,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default BlogSelected;

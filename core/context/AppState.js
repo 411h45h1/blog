@@ -18,6 +18,7 @@ const AppState = (props) => {
     lightTheme: true,
     blogEntries: null,
     blogLoaded: null,
+    blogSelected: null,
   };
   const [state, dispatch] = useReducer(appReducer, initialState);
   const { loggedIn, uid, blogLoaded } = state;
@@ -63,6 +64,13 @@ const AppState = (props) => {
   const removeBlog = (uid, bid) =>
     deleteBlogEntries(uid, bid).then(() => onBlogEntries());
 
+  const onPostSelected = (bid, title, summary, content, importance, date) => {
+    dispatch({
+      type: "BLOG_SELECTED",
+      payload: { bid, title, summary, content, importance, date },
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -71,10 +79,12 @@ const AppState = (props) => {
         lightTheme: state.lightTheme,
         blogEntries: state.blogEntries,
         blogLoaded: state.blogLoaded,
+        blogSelected: state.blogSelected,
         themeSwitch,
         onLogout,
         loadBlog,
         removeBlog,
+        onPostSelected,
       }}
     >
       {props.children}

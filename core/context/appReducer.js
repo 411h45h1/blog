@@ -35,6 +35,12 @@ export default (state, { type, payload }) => {
         blogLoaded: true,
       };
 
+    case "BLOG_SELECTED":
+      return {
+        ...state,
+        blogSelected: payload,
+      };
+
     default:
       return state;
   }

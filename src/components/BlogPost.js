@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Card, Layout, Text } from "@ui-kitten/components";
-import AppContext from "../../core/context/appContext";
 
-const BlogItem = ({
+const BlogPost = ({
   navigation,
   bid,
   author,
@@ -13,13 +12,10 @@ const BlogItem = ({
   date,
   importance,
 }) => {
-  const state = useContext(AppContext);
-  const { onPostSelected } = state;
-
   const Header = (props) => (
     <View {...props}>
       <View>
-        <Text category="h6">{title}</Text>
+        <Text category="h1">{title}</Text>
       </View>
     </View>
   );
@@ -35,30 +31,15 @@ const BlogItem = ({
     </View>
   );
 
-  const handlePostSelected = (
-    bid,
-    title,
-    summary,
-    content,
-    importance,
-    date
-  ) => {
-    onPostSelected(bid, title, summary, content, importance, date);
-    navigation.navigate("BlogSelected");
-  };
-
   return (
     <Card
       status={importance}
       header={Header}
       footer={Footer}
       style={styles.card}
-      onPress={() =>
-        handlePostSelected(bid, title, summary, content, importance, date)
-      }
     >
       <Layout style={styles.summary} level="3">
-        <Text>{summary}</Text>
+        <Text category="s1">{content}</Text>
       </Layout>
     </Card>
   );
@@ -76,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BlogItem;
+export default BlogPost;
