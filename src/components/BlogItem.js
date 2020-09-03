@@ -49,7 +49,7 @@ const BlogItem = ({
 
   return (
     <Card
-      status={importance}
+      status={importance ? importance : null}
       header={Header}
       footer={Footer}
       style={styles.card}
