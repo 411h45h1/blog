@@ -45,6 +45,7 @@ const HomeScreen = () => {
                 <BlogItem
                   key={k}
                   title={i.title}
+                  importance={i.importance}
                   summary={i.summary}
                   date={i.date}
                 />
