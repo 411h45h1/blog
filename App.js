@@ -1,20 +1,18 @@
-import React from "react";
-import * as eva from "@eva-design/eva";
-import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
+import React, { useContext } from "react";
+
 import AppState from "./core/context/AppState";
 
-const HomeScreen = () => (
-  <Layout style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text category="h1">HOME</Text>
-  </Layout>
-);
+import { NavigationContainer } from "@react-navigation/native";
+import Screens from "./Screens";
 
-export default function App() {
+const App = () => {
   return (
     <AppState>
-      <ApplicationProvider {...eva} theme={eva.light}>
-        <HomeScreen />
-      </ApplicationProvider>
+      <NavigationContainer>
+        <Screens />
+      </NavigationContainer>
     </AppState>
   );
-}
+};
+
+export default App;

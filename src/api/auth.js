@@ -1,4 +1,4 @@
-import firebase from "../../firebase";
+import firebase from "../../core/firebase";
 import "firebase/auth";
 
 export const logoutUser = () => {

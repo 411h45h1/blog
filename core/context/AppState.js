@@ -15,9 +15,12 @@ const AppState = (props) => {
   const initialState = {
     loggedIn: null,
     uid: null,
+    lightTheme: true,
   };
   const [state, dispatch] = useReducer(appReducer, initialState);
   const { loggedIn, uid, notesLoaded } = state;
+
+  const themeSwitch = () => dispatch({ type: "CHANGE_THEME" });
 
   // const loadNotes = () =>
   //   getNotes(uid).then((res) =>
@@ -62,6 +65,8 @@ const AppState = (props) => {
       value={{
         uid: state.uid,
         loggedIn: state.loggedIn,
+        lightTheme: state.lightTheme,
+        themeSwitch,
         onLogout,
       }}
     >
