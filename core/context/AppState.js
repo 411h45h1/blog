@@ -9,13 +9,14 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 import { logoutUser } from "../../src/api/auth";
-// import { getNotes, deleteNote } from "../../src/api/notes";
+import { getBlogEntries, deleteNote } from "../../src/api/blog";
 
 const AppState = (props) => {
   const initialState = {
     loggedIn: null,
     uid: null,
     lightTheme: true,
+    blogEntries: null,
   };
   const [state, dispatch] = useReducer(appReducer, initialState);
   const { loggedIn, uid, notesLoaded } = state;
@@ -66,6 +67,7 @@ const AppState = (props) => {
         uid: state.uid,
         loggedIn: state.loggedIn,
         lightTheme: state.lightTheme,
+        blogEntries: state.blogEntries,
         themeSwitch,
         onLogout,
       }}

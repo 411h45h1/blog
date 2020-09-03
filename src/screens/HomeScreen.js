@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import AppContext from "../../core/context/appContext";
 import { Layout, Card, Button, Toggle, Text } from "@ui-kitten/components";
@@ -8,8 +8,8 @@ import BlogItem from "../components/BlogItem";
 
 const HomeScreen = () => {
   const state = useContext(AppContext);
-  const { themeSwitch } = state;
-  const [checked, setChecked] = React.useState(false);
+  const { blogEntries } = state;
+  const [checked, setChecked] = useState(false);
 
   const onCheckedChange = (isChecked) => {
     setChecked(isChecked);
@@ -40,9 +40,15 @@ const HomeScreen = () => {
       <Layout style={styles.blogSection} level="4">
         <ScrollView>
           <View style={styles.container}>
-            <BlogItem />
-            <BlogItem />
-            <BlogItem />
+            {blogEntries &&
+              blogEntries.map((i, k) => (
+                <BlogItem
+                  key={k}
+                  title={i.title}
+                  summary={i.summary}
+                  date={i.date}
+                />
+              ))}
           </View>
         </ScrollView>
       </Layout>
