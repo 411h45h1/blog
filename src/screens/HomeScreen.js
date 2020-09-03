@@ -8,7 +8,7 @@ import BlogItem from "../components/BlogItem";
 
 const HomeScreen = () => {
   const state = useContext(AppContext);
-  const { blogEntries } = state;
+  const { blogEntries, themeSwitch } = state;
   const [checked, setChecked] = useState(false);
 
   const onCheckedChange = (isChecked) => {

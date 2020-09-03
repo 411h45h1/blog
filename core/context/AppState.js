@@ -17,29 +17,30 @@ const AppState = (props) => {
     uid: null,
     lightTheme: true,
     blogEntries: null,
+    blogLoaded: null,
   };
   const [state, dispatch] = useReducer(appReducer, initialState);
-  const { loggedIn, uid, notesLoaded } = state;
+  const { loggedIn, uid, blogLoaded } = state;
 
   const themeSwitch = () => dispatch({ type: "CHANGE_THEME" });
 
-  // const loadNotes = () =>
-  //   getNotes(uid).then((res) =>
-  //     dispatch({
-  //       type: "LOAD_NOTES",
-  //       payload: res.sort((a, b) => (a.nid < b.nid ? 1 : -1)),
-  //     })
-  //   );
+  const loadBlog = () =>
+    getBlogEntries().then((res) =>
+      dispatch({
+        type: "LOAD_BLOG_ENTRIES",
+        payload: res.sort((a, b) => (a.bid < b.bid ? 1 : -1)),
+      })
+    );
 
-  // const onNotes = useCallback(loadNotes, [uid]);
+  const onBlogEntries = useCallback(loadBlog, [uid]);
 
   useEffect(() => {
     authCheck();
 
-    // if (!notesLoaded && loggedIn) {
-    //   onNotes();
-    // }
-  }, [loggedIn]);
+    if (!blogLoaded && loggedIn) {
+      onBlogEntries();
+    }
+  }, [loggedIn, onBlogEntries, blogLoaded]);
 
   const authCheck = () =>
     firebase.auth().onAuthStateChanged((user) =>
@@ -59,7 +60,8 @@ const AppState = (props) => {
     dispatch({ type: "LOG_OUT" });
   };
 
-  // const removeNote = (uid, nid) => deleteNote(uid, nid).then(() => onNotes());
+  const removeBlog = (uid, bid) =>
+    deleteBlogEntries(uid, bid).then(() => onBlogEntries());
 
   return (
     <AppContext.Provider
@@ -68,8 +70,11 @@ const AppState = (props) => {
         loggedIn: state.loggedIn,
         lightTheme: state.lightTheme,
         blogEntries: state.blogEntries,
+        blogLoaded: state.blogLoaded,
         themeSwitch,
         onLogout,
+        loadBlog,
+        removeBlog,
       }}
     >
       {props.children}
