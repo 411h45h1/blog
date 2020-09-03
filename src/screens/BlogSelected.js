@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import AppContext from "../../core/context/appContext";
 import { Layout, Button, Toggle } from "@ui-kitten/components";

@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import AppContext from "../../core/context/appContext";
 import { Layout, Spinner } from "@ui-kitten/components";
 
 import firebase from "../../core/firebase";

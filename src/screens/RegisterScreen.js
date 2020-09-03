@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Button, Spinner, Icon, Text } from "@ui-kitten/components";
+import { Layout, Button, Spinner } from "@ui-kitten/components";
 
 import TextInput from "../components/TextInput";
 import {
