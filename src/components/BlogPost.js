@@ -15,7 +15,7 @@ const BlogPost = ({
   const Header = (props) => (
     <View {...props}>
       <View>
-        <Text category="h1">{title}</Text>
+        <Text category="h4">{title}</Text>
       </View>
     </View>
   );

@@ -9,8 +9,8 @@ import {
   OnBoard,
   HomeScreen,
   BlogSelected,
-} from "./src/screens";
-import AppContext from "./core/context/appContext";
+} from "../src/screens";
+import AppContext from "./context/appContext";
 import * as eva from "@eva-design/eva";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 
