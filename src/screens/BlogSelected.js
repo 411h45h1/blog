@@ -7,13 +7,7 @@ import BlogPost from "../components/BlogPost";
 
 const BlogSelected = ({ navigation }) => {
   const state = useContext(AppContext);
-  const { blogSelected, themeSwitch } = state;
-  const [checked, setChecked] = useState(false);
-
-  const onCheckedChange = (isChecked) => {
-    setChecked(isChecked);
-    themeSwitch();
-  };
+  const { blogSelected, themeSwitch, lightTheme } = state;
 
   const goBack = () => navigation.navigate("HomeScreen");
 
@@ -35,7 +29,7 @@ const BlogSelected = ({ navigation }) => {
         <Button size="small" status="basic" onPress={() => goBack()}>
           Return
         </Button>
-        <Toggle checked={checked} onChange={onCheckedChange} />
+        <Toggle checked={!lightTheme} onChange={() => themeSwitch()} />
       </Layout>
 
       <Layout style={styles.blogSection} level="4">

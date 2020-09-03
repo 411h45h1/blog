@@ -9,13 +9,7 @@ import BlogItem from "../components/BlogItem";
 
 const HomeScreen = ({ navigation }) => {
   const state = useContext(AppContext);
-  const { blogEntries, themeSwitch } = state;
-  const [checked, setChecked] = useState(false);
-
-  const onCheckedChange = (isChecked) => {
-    setChecked(isChecked);
-    themeSwitch();
-  };
+  const { blogEntries, themeSwitch, lightTheme } = state;
 
   return (
     <Layout
@@ -35,8 +29,10 @@ const HomeScreen = ({ navigation }) => {
         <Button size="small" onPress={() => logoutUser()} status="basic">
           Log Out
         </Button>
-        <Text category="s1">Blog</Text>
-        <Toggle checked={checked} onChange={onCheckedChange} />
+        <Text category="h1" style={{}}>
+          Blog
+        </Text>
+        <Toggle checked={!lightTheme} onChange={() => themeSwitch()} />
       </Layout>
 
       <Layout style={styles.blogSection} level="4">
