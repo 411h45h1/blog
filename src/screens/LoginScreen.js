@@ -105,7 +105,7 @@ const LoginScreen = ({ navigation }) => {
           status="basic"
           size="medium"
           onPress={() => handleLogin()}
-          accessoryLeft={() => (loading ? <Spinner status="control" /> : null)}
+          accessoryLeft={() => (loading ? <Spinner /> : null)}
         >
           Login
         </Button>

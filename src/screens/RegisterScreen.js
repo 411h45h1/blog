@@ -126,7 +126,7 @@ const RegisterScreen = ({ navigation }) => {
           status="basic"
           size="medium"
           onPress={() => onSignUpPressed()}
-          accessoryLeft={() => (loading ? <Spinner status="control" /> : null)}
+          accessoryLeft={() => (loading ? <Spinner /> : null)}
         >
           Sign Up
         </Button>
