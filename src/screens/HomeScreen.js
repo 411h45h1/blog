@@ -29,9 +29,7 @@ const HomeScreen = ({ navigation }) => {
         <Button size="small" onPress={() => logoutUser()} status="basic">
           Log Out
         </Button>
-        <Text category="h1" style={{}}>
-          Blog
-        </Text>
+        <Text category="h1">Blog.</Text>
         <Toggle checked={!lightTheme} onChange={() => themeSwitch()} />
       </Layout>
 

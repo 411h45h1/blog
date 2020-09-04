@@ -58,7 +58,20 @@ const LoginScreen = ({ navigation }) => {
 
       <Layout
         style={{
-          flex: 7,
+          flex: 2,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text category="h1" style={{ fontSize: 120 }}>
+          Blog.
+        </Text>
+      </Layout>
+
+      <Layout
+        style={{
+          flex: 6,
           padding: 20,
           justifyContent: "center",
           alignItems: "center",
@@ -89,6 +102,7 @@ const LoginScreen = ({ navigation }) => {
         />
 
         <Button
+          status="basic"
           size="medium"
           onPress={() => handleLogin()}
           accessoryLeft={() => (loading ? <Spinner status="control" /> : null)}
