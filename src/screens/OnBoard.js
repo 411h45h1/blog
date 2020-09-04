@@ -39,7 +39,7 @@ const OnBoard = ({ navigation }) => {
           status="basic"
           onPress={() => navigation.navigate("RegisterScreen")}
         >
-          Sign Up
+          Register
         </Button>
       </Layout>
     </Layout>
