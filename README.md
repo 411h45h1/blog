@@ -7,6 +7,14 @@ The project also uses Google firebase to authenticate users and Firebase to stor
 
 <img src='https://i.imgur.com/1irEscM.gif' height='250' width='400' ></img>
 
+## Screenshots
+<p float="left"> 
+  <img src="./github-design/light1.PNG" height="560" width="330" /> 
+  <img src="./github-design/light2.PNG" height="560" width="330" /> 
+  <img src="./github-design/dark1.PNG" height="560" width="330" /> 
+    <img src="./github-design/dark2.PNG" height="560" width="330" /> 
+</p>
+
 ## Quick Instructions
 
 To create a light demo version
