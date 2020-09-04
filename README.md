@@ -9,11 +9,15 @@ The project also uses Google firebase to authenticate users and Firebase to stor
 
 ## Screenshots
 <p float="left"> 
+  <img src="./github-design/dark1.PNG" height="560" width="330" /> 
+  <img src="./github-design/dark2.PNG" height="560" width="330" /> 
+</p>
+
+<p float="left"> 
   <img src="./github-design/light1.PNG" height="560" width="330" /> 
   <img src="./github-design/light2.PNG" height="560" width="330" /> 
-  <img src="./github-design/dark1.PNG" height="560" width="330" /> 
-    <img src="./github-design/dark2.PNG" height="560" width="330" /> 
 </p>
+
 
 ## Quick Instructions
 
