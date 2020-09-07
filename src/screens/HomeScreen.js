@@ -44,7 +44,11 @@ const HomeScreen = ({ navigation }) => {
       <Layout style={styles.blogSection} level="4">
         <ScrollView
           refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={onRefresh}
+              tintColor={lightTheme ? "black" : "white"}
+            />
           }
         >
           <View style={styles.container}>
