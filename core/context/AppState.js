@@ -80,6 +80,7 @@ const AppState = (props) => {
         blogEntries: state.blogEntries,
         blogLoaded: state.blogLoaded,
         blogSelected: state.blogSelected,
+        onBlogEntries,
         themeSwitch,
         onLogout,
         loadBlog,

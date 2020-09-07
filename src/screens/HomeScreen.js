@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
-import { StyleSheet, ScrollView, View } from "react-native";
+import React, { useState, useContext, useCallback } from "react";
+import { StyleSheet, ScrollView, RefreshControl, View } from "react-native";
 import AppContext from "../../core/context/appContext";
-import { Layout, Card, Button, Toggle, Text } from "@ui-kitten/components";
+import { Layout, Button, Toggle, Text } from "@ui-kitten/components";
 
 import { logoutUser } from "../api/auth";
 
@@ -9,7 +9,15 @@ import BlogItem from "../components/BlogItem";
 
 const HomeScreen = ({ navigation }) => {
   const state = useContext(AppContext);
-  const { blogEntries, themeSwitch, lightTheme } = state;
+  const { blogEntries, themeSwitch, lightTheme, onBlogEntries } = state;
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+
+    onBlogEntries().then(() => setRefreshing(false));
+  }, []);
 
   return (
     <Layout
@@ -34,7 +42,11 @@ const HomeScreen = ({ navigation }) => {
       </Layout>
 
       <Layout style={styles.blogSection} level="4">
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
           <View style={styles.container}>
             {blogEntries &&
               blogEntries.map((i, k) => (
