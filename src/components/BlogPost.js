@@ -1,14 +1,13 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { Card, Layout, Text } from "@ui-kitten/components";
 
 const BlogPost = ({
   navigation,
-  bid,
   author,
   title,
-  summary,
   content,
+  blogImage,
   date,
   importance,
 }) => {
@@ -38,8 +37,21 @@ const BlogPost = ({
       footer={Footer}
       style={styles.card}
     >
-      <Layout style={styles.summary} level="3">
-        <Text category="s1">{content}</Text>
+      <Layout level="3">
+        {blogImage && (
+          <Image
+            style={{
+              width: "100%",
+              height: 250,
+              marginBottom: 20,
+            }}
+            source={{ uri: blogImage }}
+          />
+        )}
+
+        <Text category="s1" style={styles.text}>
+          {content}
+        </Text>
       </Layout>
     </Card>
   );
@@ -50,10 +62,8 @@ const styles = StyleSheet.create({
     margin: 5,
     width: "100%",
   },
-  summary: {
-    padding: 10,
-    alignItems: "flex-start",
-    borderRadius: 10,
+  text: {
+    padding: 5,
   },
 });
 

@@ -40,8 +40,8 @@ const BlogSelected = ({ navigation }) => {
                 content={blogSelected.content}
                 title={blogSelected.title}
                 importance={blogSelected.importance}
-                summary={blogSelected.summary}
                 date={blogSelected.date}
+                blogImage={blogSelected.blogImage}
               />
             )}
           </View>
