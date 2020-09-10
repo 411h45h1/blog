@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   blogSection: {
     flex: 7,
     margin: 10,
-    padding: 20,
+    padding: 10,
     justifyContent: "flex-start",
     alignItems: "center",
     borderRadius: 20,
