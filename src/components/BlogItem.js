@@ -10,6 +10,7 @@ const BlogItem = ({
   title,
   summary,
   content,
+  blogImage,
   date,
   importance,
 }) => {
@@ -40,10 +41,11 @@ const BlogItem = ({
     title,
     summary,
     content,
+    blogImage,
     importance,
     date
   ) => {
-    onPostSelected(bid, title, summary, content, importance, date);
+    onPostSelected(bid, title, summary, content, blogImage, importance, date);
     navigation.navigate("BlogSelected");
   };
 
@@ -54,7 +56,15 @@ const BlogItem = ({
       footer={Footer}
       style={styles.card}
       onPress={() =>
-        handlePostSelected(bid, title, summary, content, importance, date)
+        handlePostSelected(
+          bid,
+          title,
+          summary,
+          content,
+          blogImage,
+          importance,
+          date
+        )
       }
     >
       <Layout style={styles.summary} level="3">

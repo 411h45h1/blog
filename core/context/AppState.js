@@ -64,10 +64,18 @@ const AppState = (props) => {
   const removeBlog = (uid, bid) =>
     deleteBlogEntries(uid, bid).then(() => onBlogEntries());
 
-  const onPostSelected = (bid, title, summary, content, importance, date) => {
+  const onPostSelected = (
+    bid,
+    title,
+    summary,
+    content,
+    blogImage,
+    importance,
+    date
+  ) => {
     dispatch({
       type: "BLOG_SELECTED",
-      payload: { bid, title, summary, content, importance, date },
+      payload: { bid, title, summary, content, blogImage, importance, date },
     });
   };
 

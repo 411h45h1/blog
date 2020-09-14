@@ -10,6 +10,7 @@ const BlogSelected = ({ navigation }) => {
   const { blogSelected, themeSwitch, lightTheme } = state;
 
   const goBack = () => navigation.navigate("HomeScreen");
+  console.log(blogSelected);
 
   return (
     <Layout

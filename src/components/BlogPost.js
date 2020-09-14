@@ -45,7 +45,7 @@ const BlogPost = ({
               height: 250,
               marginBottom: 20,
             }}
-            source={{ uri: blogImage }}
+            source={{ uri: blogImage.downloadLink }}
           />
         )}
 

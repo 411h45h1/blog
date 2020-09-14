@@ -61,6 +61,7 @@ const HomeScreen = ({ navigation }) => {
                   title={i.title}
                   summary={i.summary}
                   content={i.content}
+                  blogImage={i.imageRef}
                   importance={i.importance}
                   date={i.date}
                 />
