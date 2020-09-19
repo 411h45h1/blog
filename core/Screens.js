@@ -38,7 +38,7 @@ const Screens = () => {
         <Stack.Screen
           name="OnBoard"
           component={OnBoard}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
           name="LoginScreen"
@@ -58,18 +58,13 @@ const Screens = () => {
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
           name="BlogSelected"
           component={BlogSelected}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen
-        name="Podcast"
-        component={Podcast}
-        options={{ headerShown: false, gestureEnabled: false }}
-      /> */}
       </Stack.Navigator>
     </ApplicationProvider>
   );
