@@ -11,6 +11,8 @@ import "firebase/auth";
 import { logoutUser } from "../../src/api/auth";
 import { getBlogEntries, deleteNote } from "../../src/api/blog";
 
+import { StatusBar } from "react-native";
+
 const AppState = (props) => {
   const initialState = {
     loggedIn: null,
@@ -96,6 +98,9 @@ const AppState = (props) => {
         onPostSelected,
       }}
     >
+      <StatusBar
+        barStyle={state.lightTheme ? "dark-content" : "light-content"}
+      />
       {props.children}
     </AppContext.Provider>
   );
