@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import AppContext from "../../core/context/appContext";
-import { Layout, Button, Toggle } from "@ui-kitten/components";
+import { Layout, Icon, Toggle } from "@ui-kitten/components";
+import { CommonActions } from "@react-navigation/native";
 
 import BlogPost from "../components/BlogPost";
 
 const BlogSelected = ({ navigation }) => {
   const state = useContext(AppContext);
-  const { blogSelected, themeSwitch, lightTheme } = state;
-
-  const goBack = () => navigation.navigate("HomeScreen");
+  const { blogSelected } = state;
 
   return (
     <Layout
@@ -23,13 +22,15 @@ const BlogSelected = ({ navigation }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          marginHorizontal: 15,
+          marginHorizontal: 25,
         }}
       >
-        <Button size="small" status="basic" onPress={() => goBack()}>
-          Return
-        </Button>
-        <Toggle checked={!lightTheme} onChange={() => themeSwitch()} />
+        <Icon
+          style={styles.returnIcon}
+          fill="#8F9BB3"
+          name="arrow-back"
+          onPress={() => navigation.dispatch(CommonActions.goBack())}
+        />
       </Layout>
 
       <Layout style={styles.blogSection} level="4">
@@ -52,6 +53,10 @@ const BlogSelected = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  returnIcon: {
+    width: 32,
+    height: 32,
+  },
   container: {
     flexDirection: "row",
     flexWrap: "wrap",

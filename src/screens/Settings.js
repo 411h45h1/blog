@@ -1,13 +1,14 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View } from "react-native";
+import { CommonActions } from "@react-navigation/native";
 import AppContext from "../../core/context/appContext";
-import { Layout, Button, Toggle, Text } from "@ui-kitten/components";
+import { Layout, Button, Toggle, Text, Icon } from "@ui-kitten/components";
 
 import { logoutUser } from "../api/auth";
 
 const Settings = ({ navigation }) => {
   const state = useContext(AppContext);
-  const { blogEntries, themeSwitch, lightTheme, onBlogEntries } = state;
+  const { themeSwitch, lightTheme } = state;
 
   return (
     <Layout
@@ -24,6 +25,12 @@ const Settings = ({ navigation }) => {
           marginHorizontal: 15,
         }}
       >
+        <Icon
+          style={styles.returnIcon}
+          fill="#8F9BB3"
+          name="arrow-back"
+          onPress={() => navigation.dispatch(CommonActions.goBack())}
+        />
         <Text category="h1">Settings.</Text>
         <Button size="small" onPress={() => logoutUser()} status="basic">
           Log Out
@@ -31,14 +38,46 @@ const Settings = ({ navigation }) => {
       </Layout>
 
       <Layout style={styles.SettingSection} level="4">
-        <Text category="h1">Theme</Text>
-        <Toggle checked={!lightTheme} onChange={() => themeSwitch()} />
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            alignItems: "flex-start",
+          }}
+        >
+          <View
+            style={{
+              marginTop: 5,
+            }}
+          >
+            <Text category="h3">Theme</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: 5,
+              alignItems: "center",
+            }}
+          >
+            <Toggle
+              checked={!lightTheme}
+              onChange={() => themeSwitch()}
+              style={{ paddingRight: 5 }}
+            />
+            <Text category="c1">({lightTheme ? "light" : "dark"})</Text>
+          </View>
+        </View>
       </Layout>
     </Layout>
   );
 };
 
 const styles = StyleSheet.create({
+  returnIcon: {
+    width: 32,
+    height: 32,
+  },
   container: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -51,12 +90,9 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   SettingSection: {
-    flex: 7,
+    flex: 5,
     margin: 10,
     padding: 20,
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
     borderRadius: 20,
   },
 });

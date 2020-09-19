@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback } from "react";
 import { StyleSheet, ScrollView, RefreshControl, View } from "react-native";
 import AppContext from "../../core/context/appContext";
-import { Layout, Button, Toggle, Text } from "@ui-kitten/components";
+import { Layout, Button, Icon, Text } from "@ui-kitten/components";
 
 import { logoutUser } from "../api/auth";
 
@@ -39,9 +39,12 @@ const HomeScreen = ({ navigation }) => {
         </Button>
         <Text category="h1">Blog.</Text>
 
-        <Button onPress={() => navigation.navigate("Settings")} status="basic">
-          Settings
-        </Button>
+        <Icon
+          style={styles.settingsIcon}
+          fill="#8F9BB3"
+          name="settings-outline"
+          onPress={() => navigation.navigate("Settings")}
+        />
       </Layout>
 
       <Layout style={styles.blogSection} level="4">
@@ -77,6 +80,10 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  settingsIcon: {
+    width: 32,
+    height: 32,
+  },
   container: {
     flexDirection: "row",
     flexWrap: "wrap",
