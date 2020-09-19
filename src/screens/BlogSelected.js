@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
+import { CommonActions } from "@react-navigation/native";
 import AppContext from "../../core/context/appContext";
 import { Layout, Icon, Toggle } from "@ui-kitten/components";
-import { CommonActions } from "@react-navigation/native";
 
 import BlogPost from "../components/BlogPost";
 

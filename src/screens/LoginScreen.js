@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout, Button, Spinner, Icon, Text } from "@ui-kitten/components";
-
+import { CommonActions } from "@react-navigation/native";
 import TextInput from "../components/TextInput";
 import { emailValidator, passwordValidator } from "../../core/utils";
 import { loginUser } from "../api/auth";
@@ -45,15 +45,17 @@ const LoginScreen = ({ navigation }) => {
           alignItems: "flex-start",
         }}
       >
-        <Button
-          onPress={() => navigation.navigate("OnBoard")}
-          status="control"
+        <Icon
           style={{
-            margin: 20,
+            marginTop: 30,
+            marginLeft: 10,
+            width: 32,
+            height: 32,
           }}
-        >
-          Return
-        </Button>
+          fill="#8F9BB3"
+          name="arrow-back"
+          onPress={() => navigation.dispatch(CommonActions.goBack())}
+        />
       </Layout>
 
       <Layout
