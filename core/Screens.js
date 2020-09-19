@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
 import {
+  Settings,
   LoginScreen,
   RegisterScreen,
   AuthLoadingScreen,
@@ -47,6 +48,11 @@ const Screens = () => {
         <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
           options={{ headerShown: false }}
         />
         <Stack.Screen

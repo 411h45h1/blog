@@ -38,7 +38,10 @@ const HomeScreen = ({ navigation }) => {
           Log Out
         </Button>
         <Text category="h1">Blog.</Text>
-        <Toggle checked={!lightTheme} onChange={() => themeSwitch()} />
+
+        <Button onPress={() => navigation.navigate("Settings")} status="basic">
+          Settings
+        </Button>
       </Layout>
 
       <Layout style={styles.blogSection} level="4">
