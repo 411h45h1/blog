@@ -13,7 +13,7 @@ const BlogSelected = ({ navigation }) => {
   return (
     <Layout
       style={{
-        flex: 8,
+        flex: 1,
       }}
     >
       <Layout
@@ -64,10 +64,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 15,
   },
-  card: {
-    margin: 5,
-    width: "100%",
-  },
+
   blogSection: {
     flex: 7,
     margin: 10,

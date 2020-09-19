@@ -31,12 +31,9 @@ const HomeScreen = ({ navigation }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          marginHorizontal: 15,
+          marginHorizontal: 25,
         }}
       >
-        <Button size="small" onPress={() => logoutUser()} status="basic">
-          Log Out
-        </Button>
         <Text category="h1">Blog.</Text>
 
         <Icon

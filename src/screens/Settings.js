@@ -32,7 +32,7 @@ const Settings = ({ navigation }) => {
           onPress={() => navigation.dispatch(CommonActions.goBack())}
         />
         <Text category="h1">Settings.</Text>
-        <Button size="small" onPress={() => logoutUser()} status="basic">
+        <Button size="small" onPress={() => logoutUser()} status="primary">
           Log Out
         </Button>
       </Layout>
